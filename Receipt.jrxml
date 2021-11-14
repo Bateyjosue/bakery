@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a903e87f-d253-48aa-ae61-e112f63e9cfe">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="9919b57d-4711-4d36-9050-7ce15d5d6cba"/>
+	<parameter name="market" class="java.lang.String"/>
+	<parameter name="sql" class="java.lang.String"/>
+	<parameter name="controller" class="java.lang.String"/>
+	<field name="field1" class="java.lang.String"/>
+	<field name="field2" class="java.lang.String"/>
+	<field name="field3" class="java.lang.String"/>
+	<field name="field4" class="java.lang.String"/>
+	<field name="field5" class="java.lang.String"/>
+	<field name="field6" class="java.lang.String"/>
+	<field name="field7" class="java.lang.String"/>
+	<field name="field8" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="92" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="455" y="2" width="100" height="20" uuid="31dba726-6993-4d6f-aac6-d80b338e8540"/>
+				<textElement>
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="3" width="140" height="26" uuid="3fb4d9f6-24fb-4881-b31a-74042ced9bd0"/>
+				<textElement>
+					<font fontName="Century Gothic" size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Bill number           :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="34" width="141" height="26" uuid="96e5651b-7a9e-45bf-8571-d85499882326"/>
+				<textElement>
+					<font fontName="Century Gothic" size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Receipt number: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="64" width="143" height="26" uuid="e42f89c8-5c5a-4f21-acc3-1235f1cf98fd"/>
+				<textElement>
+					<font fontName="Century Gothic" size="16" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Date                      :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="142" y="6" width="100" height="20" uuid="5f390bb7-4706-4eb8-bea8-914ba0ebb45e"/>
+				<textElement>
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{field1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="144" y="67" width="100" height="20" uuid="1a049055-8852-4c7b-8a3d-c29884c1eab4"/>
+				<textElement>
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{field2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="142" y="37" width="100" height="20" uuid="8530ea78-472f-459c-b44d-334323701b41"/>
+				<textElement>
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{field3}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="44" splitType="Stretch">
+			<textField>
+				<reportElement x="137" y="3" width="286" height="40" uuid="e6fa4c84-36d2-49e2-b2a5-0c2b3f11745f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Century Gothic" size="24"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{market}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="5" y="17" width="100" height="20" uuid="7f810a13-c0e3-42b1-bac3-e1a42151ab7e"/>
+				<textElement>
+					<font fontName="Century Gothic" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bar Code]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="147" y="16" width="100" height="20" uuid="7d7f6235-68b0-4883-a444-66c9d32ea8d7"/>
+				<textElement>
+					<font fontName="Century Gothic" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Designation]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="274" y="16" width="100" height="20" uuid="acb9776e-cc85-48da-9ada-078f7fa3b27d"/>
+				<textElement>
+					<font fontName="Century Gothic" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Price]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="421" y="15" width="100" height="20" uuid="8140f19d-b241-4fe5-a965-f30c92309c65"/>
+				<textElement>
+					<font fontName="Century Gothic" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Quantity]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="2" width="100" height="20" uuid="c48c698a-6283-47af-806d-fdb00deebce3"/>
+				<text><![CDATA[field4]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="165" y="2" width="100" height="20" uuid="cf6b7201-b688-4922-b3b6-756612189acb"/>
+				<text><![CDATA[field5]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="2" width="100" height="20" uuid="91daefcb-4c41-413a-80b1-6e4c72852230"/>
+				<text><![CDATA[field6]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="424" y="2" width="100" height="20" uuid="f3afc7be-38e2-4b2a-babe-4a2f9af15a29"/>
+				<text><![CDATA[field7]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="156" splitType="Stretch">
+			<textField>
+				<reportElement x="6" y="1" width="100" height="20" uuid="a7c82dc9-25a2-44b0-8caf-432ae6073ea2"/>
+				<textElement>
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{field4}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="145" y="1" width="100" height="20" uuid="383a99d2-7133-44fd-8ea7-7a5020820b6b"/>
+				<textElement>
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{field5}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="278" y="1" width="100" height="20" uuid="18e1beb3-7291-40a3-988b-156e2f12c678"/>
+				<textElement>
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{field6}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="424" y="1" width="100" height="20" uuid="0f20bce5-65f6-4b26-bc91-8a68aebb7278"/>
+				<textElement>
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{field7}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<staticText>
+				<reportElement x="6" y="16" width="32" height="20" uuid="6481967e-23d0-43e4-84d1-9dbf1477b120"/>
+				<text><![CDATA[By: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="37" y="17" width="100" height="20" uuid="3b4e82c2-de23-43e1-9b3c-7aa86d3466ac"/>
+				<textElement>
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{controller}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="317" y="6" width="100" height="35" uuid="e551e2fc-cadc-422c-a1dd-741612106777"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Amount:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="416" y="14" width="100" height="20" uuid="888e3092-bef6-4696-a86c-d40f60bba428"/>
+				<textElement>
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{field8}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e3aa93e0-1f7f-486f-b6ca-34d21e71dbcd">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT * FROM `facture`]]>
+	</queryString>
+	<field name="Bill_ID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Bill_DATE" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="phone" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="mail" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="228" y="0" width="123" height="60" uuid="3aa1d503-2e0d-41b4-916b-e210a84b391d"/>
+				<textElement>
+					<font fontName="Yu Gothic" size="24"/>
+				</textElement>
+				<text><![CDATA[Receipt N0]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="362" y="0" width="170" height="60" uuid="17397060-e1b5-4283-9f68-3294171239cf"/>
+				<textElement>
+					<font fontName="Yu Gothic" size="24"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Bill_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="581" y="47" width="171" height="32" uuid="93954f04-7973-4483-bd1a-a2a52185039f"/>
+				<textElement>
+					<font fontName="Yu Gothic" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Bill_DATE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

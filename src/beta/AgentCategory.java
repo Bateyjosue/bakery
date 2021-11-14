@@ -411,7 +411,7 @@ public class AgentCategory extends javax.swing.JFrame {
         } else {
             try {
                 if (!kon.isClosed()) {
-                    String query = "SELECT * `tbl_Categories` WHERE `category` like '%" + txtSearchCategory.getText() + "%'";
+                    String query = "SELECT * from `tbl_Categories` WHERE `category` like '%" + txtSearchCategory.getText() + "%'";
                     pst = kon.prepareStatement(query);
                     // pst.setString(1,txt_search.getText());
                     rs = pst.executeQuery();
@@ -419,7 +419,7 @@ public class AgentCategory extends javax.swing.JFrame {
                 } else {
                     kon.close();
                 }
-            } catch (SQLException e) {
+            } catch (SQLException e) { 
                 JOptionPane.showMessageDialog(null, "Error:: \n" + e);
             }
         }

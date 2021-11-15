@@ -331,7 +331,7 @@ public class AgentProduct extends javax.swing.JFrame {
         jLabel18.setText("Description");
 
         expiry_date.setToolTipText("");
-        expiry_date.setDateFormatString(" yyyy-MM-d");
+        expiry_date.setDateFormatString(" yyyy-MM-dd");
         expiry_date.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
 
         nature.setFont(new java.awt.Font("Ubuntu", 0, 12)); // NOI18N
@@ -564,20 +564,34 @@ public class AgentProduct extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSearchProductKeyReleased
 
     private void tbl_ProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_ProductMouseClicked
+        TableModel model=tbl_Product.getModel();
+        product_ID.setText(model.getValueAt(tbl_Product.getSelectedRow(),0).toString());
+        category_ID.setText(model.getValueAt(tbl_Product.getSelectedRow(),1).toString());
+        bar_code.setText(model.getValueAt(tbl_Product.getSelectedRow(),2).toString());
+        designation.setText(model.getValueAt(tbl_Product.getSelectedRow(),3).toString());
+        price.setText(model.getValueAt(tbl_Product.getSelectedRow(),4).toString());
         try {
-            TableModel model=tbl_Product.getModel();
-            product_ID.setText(model.getValueAt(tbl_Product.getSelectedRow(),0).toString());
-            category_ID.setText(model.getValueAt(tbl_Product.getSelectedRow(),1).toString());
-            bar_code.setText(model.getValueAt(tbl_Product.getSelectedRow(),2).toString());
-            designation.setText(model.getValueAt(tbl_Product.getSelectedRow(),3).toString());
-            price.setText(model.getValueAt(tbl_Product.getSelectedRow(),4).toString());
-            expiry_date.setDate(new SimpleDateFormat("yyyy-MM-dd").parse((String)model.getValueAt(tbl_Product.getSelectedRow(), 5)));
-            nature.setSelectedItem(model.getValueAt(tbl_Product.getSelectedRow(),6).toString());
-            quantity.setText(model.getValueAt(tbl_Product.getSelectedRow(),7).toString());
-            description.setText(model.getValueAt(tbl_Product.getSelectedRow(),8).toString());
+            expiry_date.setDate(new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(model.getValueAt(tbl_Product.getSelectedRow(), 5).toString()));
         } catch (ParseException ex) {
-            Logger.getLogger(AgentProduct.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AdminProduct.class.getName()).log(Level.SEVERE, null, ex);
         }
+        nature.setSelectedItem(model.getValueAt(tbl_Product.getSelectedRow(),6).toString());
+        quantity.setText(model.getValueAt(tbl_Product.getSelectedRow(),7).toString());
+        description.setText(model.getValueAt(tbl_Product.getSelectedRow(),8).toString());
+//        try {
+//            TableModel model=tbl_Product.getModel();
+//            product_ID.setText(model.getValueAt(tbl_Product.getSelectedRow(),0).toString());
+//            category_ID.setText(model.getValueAt(tbl_Product.getSelectedRow(),1).toString());
+//            bar_code.setText(model.getValueAt(tbl_Product.getSelectedRow(),2).toString());
+//            designation.setText(model.getValueAt(tbl_Product.getSelectedRow(),3).toString());
+//            price.setText(model.getValueAt(tbl_Product.getSelectedRow(),4).toString());
+//            expiry_date.setDate(new SimpleDateFormat("yyyy-MM-dd").parse((String)model.getValueAt(tbl_Product.getSelectedRow(), 5)));
+//            nature.setSelectedItem(model.getValueAt(tbl_Product.getSelectedRow(),6).toString());
+//            quantity.setText(model.getValueAt(tbl_Product.getSelectedRow(),7).toString());
+//            description.setText(model.getValueAt(tbl_Product.getSelectedRow(),8).toString());
+//        } catch (ParseException ex) {
+//            Logger.getLogger(AgentProduct.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_tbl_ProductMouseClicked
 
     private void product_IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_product_IDActionPerformed
@@ -614,7 +628,7 @@ public class AgentProduct extends javax.swing.JFrame {
                 + "`bar_code`='"+bar_code.getText()+"', `designation` = '"+designation.getText() +"' "
                         + " , `price` = '"+price.getText() +"', `expiry_date` = '"+expiry_date.getDate() +"'"
                         + " , `nature` = '"+nature.getSelectedItem() +"' , `stock_quantity` = '"+quantity.getText() +"'"
-                        + ", `description` = '"+description.getText() +"' , `created_date` = now() WHERE `id`='"+product_ID.getText()+"'";
+                        + ", `description` = '"+description.getText() +"' , `created_at` = now() WHERE `id`='"+product_ID.getText()+"'";
                 pst=kon.prepareStatement(s);
                 pst.execute();
                 JOptionPane.showMessageDialog(null,"Updated");

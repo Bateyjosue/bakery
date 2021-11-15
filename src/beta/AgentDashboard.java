@@ -458,7 +458,7 @@ public final class AgentDashboard extends javax.swing.JFrame {
     private void jLabel40MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel40MouseClicked
         // TODO add your handling code here:
         this.setVisible(false);
-        new AdminProduct().setVisible(true);
+        new AgentProduct().setVisible(true);
     }//GEN-LAST:event_jLabel40MouseClicked
 
     private void jLabel42MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel42MouseClicked

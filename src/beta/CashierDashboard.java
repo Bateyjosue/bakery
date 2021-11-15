@@ -18,6 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 
 /**
@@ -284,6 +285,11 @@ public final class CashierDashboard extends javax.swing.JFrame {
         jPanel4.add(pane_Total, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 121, 23));
 
         txt_Sales_Qty.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
+        txt_Sales_Qty.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_Sales_QtyActionPerformed(evt);
+            }
+        });
         txt_Sales_Qty.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txt_Sales_QtyKeyReleased(evt);
@@ -309,6 +315,11 @@ public final class CashierDashboard extends javax.swing.JFrame {
         pane_Total1.setText("Add on Product");
         pane_Total1.setToolTipText("");
         pane_Total1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(7, 59, 49)));
+        pane_Total1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pane_Total1MouseClicked(evt);
+            }
+        });
         jPanel4.add(pane_Total1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 213, 33));
 
         txt_PRICE_Product.setFont(new java.awt.Font("Yu Gothic", 0, 14)); // NOI18N
@@ -328,10 +339,7 @@ public final class CashierDashboard extends javax.swing.JFrame {
 
         cart.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Bill  ID", "Product Name", "Price", "Quantity", "Sub Total"
@@ -585,7 +593,7 @@ public final class CashierDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_BarCode_SearchKeyReleased
 
     private void txt_BarCode_Search1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_BarCode_Search1KeyReleased
-        if(txt_BarCode_Search.getText().equals("")){
+        if(txt_BarCode_Search1.getText().equals("")){
             
         }
         else if(evt.getKeyCode() == KeyEvent.VK_ENTER){
@@ -598,7 +606,7 @@ public final class CashierDashboard extends javax.swing.JFrame {
                         txt_ID_Product.setText(rs.getString("id"));
                         txt_Des_Product.setText(rs.getString("designation"));
                         txt_PRICE_Product.setText(rs.getString("price"));
-                        txt_Sales_Qty.setText(rs.getString("stock_quantity"));
+//                        txt_Sales_Qty.setText(rs.getString("stock_quantity"));
                     }
                     
                 }
@@ -629,9 +637,9 @@ public final class CashierDashboard extends javax.swing.JFrame {
 
     private void txt_ID_BillKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_ID_BillKeyReleased
         if(txt_ID_Bill.getText().equals("")){
-            
+            date_Bill.setDate(null);
         }
-        else if (evt.getKeyCode() == KeyEvent.VK_ENTER){
+        else if (!txt_ID_Bill.getText().equals("")){
             try{
                 if(!kon.isClosed()){
                     String query = "select * from tbl_Bill where id = '"+ txt_ID_Bill.getText() +"'";
@@ -651,6 +659,29 @@ public final class CashierDashboard extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_txt_ID_BillKeyReleased
+
+    private void pane_Total1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pane_Total1MouseClicked
+        DefaultTableModel model = (DefaultTableModel) cart.getModel();
+        model.addRow(new Object[]{
+            txt_ID_Bill.getText(),
+            txt_Des_Product.getText(),
+            txt_PRICE_Product.getText(),
+            txt_Sales_Qty.getText(),
+            pane_Total.getText()
+            
+        });
+            txt_ID_Bill.setText("");
+            txt_ID_Product.setText("");
+            txt_Des_Product.setText("");
+            txt_PRICE_Product.setText("");
+            txt_Sales_Qty.setText("");
+            pane_Total.setText("");
+            date_Bill.setDate(null);
+    }//GEN-LAST:event_pane_Total1MouseClicked
+
+    private void txt_Sales_QtyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_Sales_QtyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_Sales_QtyActionPerformed
     /**
      * @param args the command line arguments
      */

@@ -481,7 +481,7 @@ public final class Invoices extends javax.swing.JFrame {
     private void jLabel43MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel43MouseClicked
         // TODO add your handling code here:
         this.setVisible(false);
-        new AdminClients().setVisible(true);
+        new CashierClient().setVisible(true);
     }//GEN-LAST:event_jLabel43MouseClicked
 
     private void jLabel44MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel44MouseClicked
